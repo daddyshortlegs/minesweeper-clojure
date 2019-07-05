@@ -4,4 +4,9 @@
 
 (deftest single-item
   (testing "Single item"
-    (is (= 0 (get-mines ["."])))))
+    (is (= "0" (get-mines ["."])))))
+
+(deftest single-mine
+  (testing "Single mine"
+    (is (= "*" (get-mines ["*"])))))
+

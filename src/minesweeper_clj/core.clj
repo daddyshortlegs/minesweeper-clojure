@@ -2,7 +2,9 @@
   (:gen-class))
 
 (defn get-mines [grid]
-  0)
+  (if (= (nth grid 0) "*")
+    "*"
+    "0"))
 
 (defn -main
   "I don't do a whole lot ... yet."

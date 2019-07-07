@@ -16,13 +16,16 @@
   (reduce (fn [left right] (add-up left right)) 0 row)
   )
 
+(defn row-above [rows y] (nth rows (- y 1)))
+
+(defn row-below [rows y] (nth rows (+ y 1)))
 
 
 (defn count-pos [rows x y]
-  (+ (count-row (nth rows (- y 1)))
+  (+ (count-row (row-above rows y))
      (count-mine (nth (nth rows y) (- x 1)))
      (count-mine (nth (nth rows y) (+ x 1)))
-     (count-row (nth rows (+ y 1)))
+     (count-row (row-below rows y))
   ))
 
 

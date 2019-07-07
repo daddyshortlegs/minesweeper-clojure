@@ -27,7 +27,7 @@
 ;                         ["." "*" "*"]
 ;                         ["*" "." "*"]] 1 1)))))
 
-(deftest test-three-rows
+(deftest test-mine-in-the-middle
   (testing "3 rows"
     (is (= 6 (count-pos [
                          ["." "*" "*"]

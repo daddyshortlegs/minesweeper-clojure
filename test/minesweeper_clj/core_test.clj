@@ -15,17 +15,24 @@
 ;    (is (= ["0" "0"] (get-mines ["." "."])))))
 
 
-(deftest test-two-rows
-  (testing "two rows"
-    (is (= 3 (count-pos [
-                          ["." "*" "*"]
-                          ["*" "." "."]] 1 1)))))
+;(deftest test-two-rows
+;  (testing "two rows"
+;    (is (= 3 (count-pos [
+;                          ["." "*" "*"]
+;                          ["*" "." "."]] 1 1)))))
 
-(deftest test-around
-  (testing "test around "
-    (is (= 4 (count-pos [
+;(deftest test-around
+;  (testing "test around "
+;    (is (= 4 (count-pos [
+;                         ["." "*" "*"]
+;                         ["*" "." "*"]] 1 1)))))
+
+(deftest test-three-rows
+  (testing "3 rows"
+    (is (= 6 (count-pos [
                          ["." "*" "*"]
-                         ["*" "." "*"]] 1 1)))))
+                         ["*" "." "*"]
+                         ["*" "*" "."]] 1 1)))))
 
 
 (deftest test-count-row

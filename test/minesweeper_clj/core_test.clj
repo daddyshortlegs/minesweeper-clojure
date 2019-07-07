@@ -41,6 +41,12 @@
                        ["*" "." "*"]
                        ["*" "*" "."]] 1 0)))))
 
+(deftest test-dont-count-below
+  (testing "dont count below"
+    (is (= 3 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]
+                         ["*" "." "."]] 1 2)))))
 
 
 (deftest test-count-row

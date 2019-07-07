@@ -20,7 +20,9 @@
   (if (> y 0)
     (nth rows (- y 1)) []))
 
-(defn row-below [rows y] (nth rows (+ y 1)))
+(defn row-below [rows y]
+  (if (< y (- (count rows) 1))
+    (nth rows (+ y 1)) []))
 
 
 (defn count-pos [rows x y]

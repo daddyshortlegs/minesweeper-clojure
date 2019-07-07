@@ -21,6 +21,13 @@
                           ["." "*" "*"]
                           ["*" "." "."]] 1 1)))))
 
+(deftest test-around
+  (testing "test around "
+    (is (= 4 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]] 1 1)))))
+
+
 (deftest test-count-row
   (testing "a row is summed"
     (is (= 2 (count-row ["." "*" "*"])))))

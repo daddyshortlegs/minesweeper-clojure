@@ -21,6 +21,7 @@
 (defn count-pos [rows x y]
   (+ (count-row (nth rows (- y 1)))
      (count-mine (nth (nth rows y) (- x 1)))
+     (count-mine (nth (nth rows y) (+ x 1)))
   ))
 
 

@@ -16,7 +16,9 @@
   (reduce (fn [left right] (add-up left right)) 0 row)
   )
 
-(defn row-above [rows y] (nth rows (- y 1)))
+(defn row-above [rows y]
+  (if (> y 0)
+    (nth rows (- y 1)) []))
 
 (defn row-below [rows y] (nth rows (+ y 1)))
 

@@ -34,6 +34,14 @@
                          ["*" "." "*"]
                          ["*" "*" "."]] 1 1)))))
 
+(deftest test-dont-count-above
+(testing "dont count above"
+  (is (= 3 (count-pos [
+                       ["." "*" "*"]
+                       ["*" "." "*"]
+                       ["*" "*" "."]] 1 0)))))
+
+
 
 (deftest test-count-row
   (testing "a row is summed"

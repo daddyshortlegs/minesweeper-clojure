@@ -15,6 +15,11 @@
 ;    (is (= ["0" "0"] (get-mines ["." "."])))))
 
 
+(deftest test-two-rows
+  (testing "two rows"
+    (is (= 3 (count-pos [
+                          ["." "*" "*"]
+                          ["*" "." "."]] 1 1)))))
 
 (deftest test-count-row
   (testing "a row is summed"

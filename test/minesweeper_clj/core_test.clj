@@ -21,18 +21,18 @@
                           ["." "*" "*"]
                           ["*" "." "."]] 1 1)))))
 
-;(deftest test-around
-;  (testing "test around "
-;    (is (= 4 (count-pos [
-;                         ["." "*" "*"]
-;                         ["*" "." "*"]] 1 1)))))
+(deftest test-around
+  (testing "test around "
+    (is (= 4 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]] 1 1)))))
 
-;(deftest test-mine-in-the-middle
-;  (testing "3 rows"
-;    (is (= 6 (count-pos [
-;                         ["." "*" "*"]
-;                         ["*" "." "*"]
-;                         ["*" "*" "."]] 1 1)))))
+(deftest test-mine-in-the-middle
+  (testing "3 rows"
+    (is (= 6 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]
+                         ["*" "*" "."]] 1 1)))))
 ;
 ;(deftest test-dont-count-above
 ;(testing "dont count above"

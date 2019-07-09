@@ -10,9 +10,6 @@
 ;  (testing "Single mine"
 ;    (is (= ["*"] (get-mines ["*"])))))
 
-;(deftest two-cells
-;  (testing "2 cells"
-;    (is (= ["0" "0"] (get-mines ["." "."])))))
 
 
 (deftest test-two-rows
@@ -55,6 +52,13 @@
                        ["." "." "*"]
                        ["*" "." "."]] 0 1)))))
 
+(deftest test-dont-count-right
+(testing "right bounds"
+  (is (= 2 (count-pos [
+                       ["." "*" "*"]
+                       ["." "." "*"]
+                       ["*" "." "."]] 2 1)))))
+
 
 (deftest test-count-row
   (testing "a row is summed"
@@ -69,3 +73,8 @@
     (is (= [0 1 2] (cropped-cells [0 1 2] 1)))
     (is (= [0 1] (cropped-cells [0 1 2] 0)))
     (is (= [1 2] (cropped-cells [0 1 2] 2)))))
+
+
+;(deftest test-whole-row
+;  (testing "a whole row"
+;    (is (= ["1" "*" "1" "0"] (get-mines ["." "*" "." "."])))))

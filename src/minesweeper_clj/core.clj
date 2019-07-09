@@ -32,20 +32,27 @@
     (nth rows (+ y 1)) []))
 
 (defn cell-left [row x]
+  (do
+    (println "row is " row " x is " x)
   (if (> x 0)
-    (nth row (- x 1)) 0))
+    (nth row (- x 1)) 0)))
+
+(defn cell-right [row x]
+  (if (< x (- (count row) 1))
+    (nth row (+ x 1)) 0))
 
 (defn count-pos [rows x y]
   (+ (count-row (row-above rows y) x)
      (count-mine (cell-left (nth rows y) x))
-     (count-mine (nth (nth rows y) (+ x 1)))
+     (count-mine (cell-right (nth rows y) x))
      (count-row (row-below rows y) x)
      ))
 
 
 
-(defn get-mines [grid]
-  [(count-mine (nth grid 0))]
+(defn get-mines [rows]
+  (map (fn [cell]
+         (println "values are " (count-pos rows cell 0)) ) (range 0 (count rows)))
   )
 
 

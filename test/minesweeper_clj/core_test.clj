@@ -33,27 +33,27 @@
                          ["." "*" "*"]
                          ["*" "." "*"]
                          ["*" "*" "."]] 1 1)))))
-;
-;(deftest test-dont-count-above
-;(testing "dont count above"
-;  (is (= 3 (count-pos [
-;                       ["." "*" "*"]
-;                       ["*" "." "*"]
-;                       ["*" "*" "."]] 1 0)))))
-;
-;(deftest test-dont-count-below
-;  (testing "dont count below"
-;    (is (= 3 (count-pos [
-;                         ["." "*" "*"]
-;                         ["*" "." "*"]
-;                         ["*" "." "."]] 1 2)))))
 
-;(deftest test-dont-count-left
-;(testing "left bounds"
-;  (is (= 2 (count-pos [
-;                       ["." "*" "*"]
-;                       ["." "." "*"]
-;                       ["*" "." "."]] 0 1)))))
+(deftest test-dont-count-above
+(testing "dont count above"
+  (is (= 3 (count-pos [
+                       ["." "*" "*"]
+                       ["*" "." "*"]
+                       ["*" "*" "."]] 1 0)))))
+
+(deftest test-dont-count-below
+  (testing "dont count below"
+    (is (= 3 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]
+                         ["*" "." "."]] 1 2)))))
+
+(deftest test-dont-count-left
+(testing "left bounds"
+  (is (= 2 (count-pos [
+                       ["." "*" "*"]
+                       ["." "." "*"]
+                       ["*" "." "."]] 0 1)))))
 
 
 (deftest test-count-row

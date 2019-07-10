@@ -21,8 +21,6 @@
 (defn count-row [row x]
   (count-around-cell row (cropped-cells row x)))
 
-
-
 (defn row-above [rows y]
   (if (> y 0)
     (nth rows (- y 1)) []))
@@ -32,10 +30,8 @@
     (nth rows (+ y 1)) []))
 
 (defn cell-left [row x]
-  (do
-    (println "row is " row " x is " x)
   (if (> x 0)
-    (nth row (- x 1)) 0)))
+    (nth row (- x 1)) 0))
 
 (defn cell-right [row x]
   (if (< x (- (count row) 1))
@@ -59,16 +55,8 @@
        (range 0 (count row)))
   )
 
-
 (defn get-mines [rows]
-  (let [row1 (nth rows 0)]
-    (count-each-cell rows row1)
-
-
-
-    )
-
-  )
+  (count-each-cell rows (nth rows 0)))
 
 
 

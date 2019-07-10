@@ -51,9 +51,15 @@
 
 
 (defn get-mines [rows]
-  (map (fn [cell]
-         (println "values are " (count-pos rows cell 0)) ) (range 0 (count rows)))
-  )
+  (let [row1 (nth rows 0)]
+    (map (fn [cell]
+           (if (= "*" (nth row1 cell))
+             "*"
+             (str (count-pos rows cell 0))
+             )
+           )
+       (range 0 (count row1)))))
+
 
 
 

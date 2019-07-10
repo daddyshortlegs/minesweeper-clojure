@@ -2,16 +2,6 @@
   (:require [clojure.test :refer :all]
             [minesweeper-clj.core :refer :all]))
 
-;(deftest single-item
-;  (testing "Single item"
-;    (is (= ["0"] (get-mines ["."])))))
-;
-;(deftest single-mine
-;  (testing "Single mine"
-;    (is (= ["*"] (get-mines ["*"])))))
-
-
-
 (deftest test-two-rows
   (testing "two rows"
     (is (= 3 (count-pos [
@@ -75,6 +65,6 @@
     (is (= [1 2] (cropped-cells [0 1 2] 2)))))
 
 
-;(deftest test-whole-row
-;  (testing "a whole row"
-;    (is (= ["1" "*" "1" "0"] (get-mines ["." "*" "." "."])))))
+(deftest test-whole-row
+  (testing "a whole row"
+    (is (= ["1" "*" "1" "0"] (get-mines [["." "*" "." "."]])))))

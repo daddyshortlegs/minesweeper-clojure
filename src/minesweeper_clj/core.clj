@@ -49,16 +49,26 @@
      ))
 
 
+(defn count-each-cell [rows row]
+  (map (fn [x]
+         (if (= "*" (nth row x))
+           "*"
+           (str (count-pos rows x 0))
+           )
+         )
+       (range 0 (count row)))
+  )
+
 
 (defn get-mines [rows]
   (let [row1 (nth rows 0)]
-    (map (fn [cell]
-           (if (= "*" (nth row1 cell))
-             "*"
-             (str (count-pos rows cell 0))
-             )
-           )
-       (range 0 (count row1)))))
+    (count-each-cell rows row1)
+
+
+
+    )
+
+  )
 
 
 

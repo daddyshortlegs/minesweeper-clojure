@@ -4,9 +4,6 @@
 (defn count-mine [cell]
   (if (= cell "*") 1 0))
 
-(defn count-around-cell [row range]
-  (count (filter (fn [i] (= (nth row i) "*")) range)))
-
 (defn cropped-cells [row x]
   (filter
     (fn [i]
@@ -15,24 +12,27 @@
       )
     (range (- x 1) (+ x 2))))
 
+(defn count-around-cell [row range]
+  (count (filter (fn [i] (= (nth row i) "*")) range)))
+
 (defn count-row [row x]
   (count-around-cell row (cropped-cells row x)))
-
-(defn row-above [rows y]
-  (if (> y 0)
-    (nth rows (- y 1)) []))
 
 (defn row-below [rows y]
   (if (< y (- (count rows) 1))
     (nth rows (+ y 1)) []))
 
+(defn cell-right [row x]
+  (if (< x (- (count row) 1))
+    (nth row (+ x 1)) 0))
+
 (defn cell-left [row x]
   (if (> x 0)
     (nth row (- x 1)) 0))
 
-(defn cell-right [row x]
-  (if (< x (- (count row) 1))
-    (nth row (+ x 1)) 0))
+(defn row-above [rows y]
+  (if (> y 0)
+    (nth rows (- y 1)) []))
 
 (defn count-pos [rows x y]
   (+ (count-row (row-above rows y) x)

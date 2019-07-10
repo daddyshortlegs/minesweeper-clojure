@@ -35,6 +35,13 @@
                          ["*" "." "*"]
                          ["*" "." "."]] 1 2)))))
 
+(deftest test-somefink-below
+  (testing "dont count below"
+    (is (= 5 (count-pos [
+                         ["." "*" "*"]
+                         ["*" "." "*"]
+                         ["*" "." "."]] 1 1)))))
+
 (deftest test-dont-count-left
 (testing "left bounds"
   (is (= 2 (count-pos [
@@ -67,4 +74,34 @@
 
 (deftest test-whole-row
   (testing "a whole row"
-    (is (= ["1" "*" "1" "0"] (get-mines [["." "*" "." "."]])))))
+    (is (= [["1" "*" "1" "0"]] (get-mines [["." "*" "." "."]])))))
+
+(deftest test-two-row-grid
+  (testing "two row grid"
+    (is (= [
+            ["1" "*" "*"]
+            ["1" "3" "*"]] (get-mines [
+                                       ["." "*" "*"]
+                                       ["." "." "*"]])))))
+
+
+;(deftest test-two-row-grid-stuffs
+;  (testing "two row grid"
+;    (let [grid [["." "*" "*"]
+;                ["." "." "*"]]]
+;      (is (= 1 (count-pos grid 0 0)))
+;      (is (= 1 (count-pos grid 0 1)))
+;      (is (= 3 (count-pos grid 1 1)))
+;
+;      )))
+
+
+;(deftest test-complete-grid
+;  (testing "complete-grid"
+;    (is (= [
+;            ["1" "*" "*"]
+;            ["2" "4" "*"]
+;            ["*" "2" "1"]] (get-mines [
+;                         ["." "*" "*"]
+;                         ["." "." "*"]
+;                         ["*" "." "."]])))))

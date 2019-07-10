@@ -45,18 +45,20 @@
      ))
 
 
-(defn count-each-cell [rows row]
+(defn count-each-cell [rows row y]
   (map (fn [x]
          (if (= "*" (nth row x))
            "*"
-           (str (count-pos rows x 0))
+           (str (count-pos rows x y))
            )
          )
        (range 0 (count row)))
   )
 
 (defn get-mines [rows]
-  (count-each-cell rows (nth rows 0)))
+  (for [y (range 0 (count rows))]
+     (count-each-cell rows (nth rows y) y)
+     ))
 
 
 

@@ -84,24 +84,12 @@
                                        ["." "*" "*"]
                                        ["." "." "*"]])))))
 
-
-;(deftest test-two-row-grid-stuffs
-;  (testing "two row grid"
-;    (let [grid [["." "*" "*"]
-;                ["." "." "*"]]]
-;      (is (= 1 (count-pos grid 0 0)))
-;      (is (= 1 (count-pos grid 0 1)))
-;      (is (= 3 (count-pos grid 1 1)))
-;
-;      )))
-
-
-;(deftest test-complete-grid
-;  (testing "complete-grid"
-;    (is (= [
-;            ["1" "*" "*"]
-;            ["2" "4" "*"]
-;            ["*" "2" "1"]] (get-mines [
-;                         ["." "*" "*"]
-;                         ["." "." "*"]
-;                         ["*" "." "."]])))))
+(deftest test-complete-grid
+  (testing "complete-grid"
+    (is (= [
+            ["1" "*" "*"]
+            ["2" "4" "*"]
+            ["*" "2" "1"]] (get-mines [
+                         ["." "*" "*"]
+                         ["." "." "*"]
+                         ["*" "." "."]])))))

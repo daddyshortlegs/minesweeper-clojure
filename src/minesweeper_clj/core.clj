@@ -2,10 +2,7 @@
   (:gen-class))
 
 (defn count-mine [cell]
-  (if (= cell "*")
-    1
-    0))
-
+  (if (= cell "*") 1 0))
 
 (defn count-around-cell [row range]
   (count (filter (fn [i] (= (nth row i) "*")) range)))
@@ -41,8 +38,7 @@
   (+ (count-row (row-above rows y) x)
      (count-mine (cell-left (nth rows y) x))
      (count-mine (cell-right (nth rows y) x))
-     (count-row (row-below rows y) x)
-     ))
+     (count-row (row-below rows y) x)))
 
 
 (defn count-each-cell [rows row y]
@@ -52,23 +48,8 @@
            (str (count-pos rows x y))
            )
          )
-       (range 0 (count row)))
-  )
+       (range 0 (count row))))
 
 (defn get-mines [rows]
   (for [y (range 0 (count rows))]
-     (count-each-cell rows (nth rows y) y)
-     ))
-
-
-
-
-
-;(defn count-mines [grid]
-;  (def list (loop [i 0]
-;    (when (< i (count grid))
-;      (count-mine grid i)
-;    (recur (+ i 1)))
-;  ))
-;  (println "list is " (count list))
-;  )
+     (count-each-cell rows (nth rows y) y)))

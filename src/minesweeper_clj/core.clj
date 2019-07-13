@@ -1,9 +1,6 @@
 (ns minesweeper-clj.core
   (:gen-class))
 
-(defn count-mine [cell]
-  (if (= cell "*") 1 0))
-
 (defn cropped-cells [row x]
   (filter
     (fn [i]
@@ -22,24 +19,19 @@
   (if (< y (- (count rows) 1))
     (nth rows (+ y 1)) []))
 
-(defn cell-right [row x]
-  (if (< x (- (count row) 1))
-    (nth row (+ x 1)) 0))
-
-(defn cell-left [row x]
-  (if (> x 0)
-    (nth row (- x 1)) 0))
-
 (defn row-above [rows y]
   (if (> y 0)
     (nth rows (- y 1)) []))
 
-(defn count-pos [rows x y]
+(defn sum-all-rows [rows x y]
   (+ (count-row (row-above rows y) x)
-     (count-mine (cell-left (nth rows y) x))
-     (count-mine (cell-right (nth rows y) x))
+     (count-row (nth rows y) x)
      (count-row (row-below rows y) x)))
 
+(defn count-pos [rows x y]
+  (let [mine-present (if (= "*" (nth (nth rows y) x)) 1 0)]
+    (- (sum-all-rows rows x y) mine-present)
+    ))
 
 (defn count-each-cell [rows row y]
   (map (fn [x]

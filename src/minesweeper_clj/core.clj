@@ -2,15 +2,11 @@
   (:gen-class))
 
 (defn cropped-cells [row x]
-  (filter
-    (fn [i]
-      (and (> i -1)
-           (< i (count row)))
-      )
-    (range (- x 1) (+ x 2))))
+  (->> (range (- x 1) ( + x 2))
+       (filter #(and (> % -1) (< % (count row))))))
 
 (defn count-around-cell [row range]
-  (count (filter (fn [i] (= (nth row i) "*")) range)))
+  (count (filter #(= (nth row %) "*") range)))
 
 (defn count-row [row x]
   (count-around-cell row (cropped-cells row x)))
@@ -34,14 +30,11 @@
     ))
 
 (defn count-each-cell [rows row y]
-  (map (fn [x]
-         (if (= "*" (nth row x))
-           "*"
-           (str (count-pos rows x y))
-           )
-         )
-       (range 0 (count row))))
+  (->> (range 0 (count row))
+       (map #(if (= "*" (nth row %))
+               "*"
+               (str (count-pos rows % y))))))
 
 (defn get-mines [rows]
-  (for [y (range 0 (count rows))]
-     (count-each-cell rows (nth rows y) y)))
+  (->> (range 0 (count rows))
+       (map #(count-each-cell rows (nth rows %) %))))
